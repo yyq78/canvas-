@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七巧板</title>
+</head>
+<body>
+    <canvas id="canvas" style="display:block; margin:0 auto;border:1px solid silver">
+    您的浏览器不支持canvas，请更换浏览器尝试。
+    </canvas>
+    <script>
+        var tangram=[
+            {p:[{x:0,y:0},{x:600,y:0},{x:300,y:300}],color:"#caff67"},
+            {p:[{x:0,y:0},{x:0,y:600},{x:300,y:300}],color:"#67becf"},
+            {p:[{x:600,y:0},{x:600,y:300},{x:450,y:450},{x:450,y:150}],color:"#ef3d61"},
+            {p:[{x:450,y:150},{x:450,y:450},{x:300,y:300}],color:"#f9f51a"},
+            {p:[{x:300,y:300},{x:450,y:450},{x:300,y:600},{x:150,y:450}],color:"#a594c0"},
+            {p:[{x:150,y:450},{x:300,y:600},{x:0,y:600}],color:"#fa8ecc"},
+            {p:[{x:600,y:300},{x:600,y:600},{x:300,y:600}],color:"#f6ca29"}
+        ];
+        window.onload=function() {
+            var canvas = document.getElementById("canvas");
+
+            canvas.width = 600;
+            canvas.height = 600;
+
+            var context = canvas.getContext("2d");
+            for (var i = 0; i < tangram.length; i++)
+                draw(tangram[i], context);
+        };
+        function draw(piece,cxt){
+            cxt.beginPath();
+            cxt.moveTo(piece.p[0].x,piece.p[0].y);
+            for(var i=1;i<piece.p.length;i++)
+                cxt.lineTo(piece.p[i].x,piece.p[i].y);
+            cxt.closePath();
+
+            cxt.fillStyle=piece.color;
+            cxt.fill();
+            cxt.strokeStyle="black";
+            cxt.stroke();
+        }
+    </script>
+</body>
+</html>
