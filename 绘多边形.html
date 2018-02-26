@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas绘多边形</title>
+    <style type="text/css">
+        #canvas{
+            position:relative;
+            margin:0;
+            display:block;
+
+        }
+        #text{
+            font-family:"Comic Sans MS";
+            font-size:70px;
+            font-weight:bold;
+            padding:0;
+            margin:0;
+            position:absolute;
+            top:210px;
+            left:210px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width=1330 height=500 style="">
+    您的浏览器不支持canvas，请更换浏览器尝试。
+    </canvas>
+    <div id="text">adidas</div>
+<script type="text/javascript">
+    var canvas=document.getElementById("canvas");
+    var context=canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(200,200);
+    context.lineTo(210,210);
+    context.lineTo(260,210);
+    context.lineTo(230,180);
+    context.closePath();
+
+    context.fillStyle="black";
+    context.fill();
+
+
+
+    context.beginPath();
+    context.moveTo(240,170);
+    context.lineTo(280,210);
+    context.lineTo(330,210);
+    context.lineTo(270,150);
+    context.closePath();
+
+    context.fillStyle="black";
+    context.fill();
+
+    context.lineWidth=2;
+    context.strokeStyle="black";
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(280,140);
+    context.lineTo(350,210);
+    context.lineTo(400,210);
+    context.lineTo(310,120);
+    context.closePath();
+
+    context.fillStyle="black";
+    context.fill();
+
+    context.lineWidth=2;
+    context.strokeStyle="black";
+    context.stroke();
+</script>
+</body>
+</html>
