@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绘弧和圆</title>
+</head>
+<body>
+    <canvas id="canvas" style="display:block; margin:0 auto;border:1px solid silver">
+    您的浏览器不支持canvas，请更换浏览器尝试。
+    </canvas>
+    <script>
+        var canvas=document.getElementById("canvas");
+
+        canvas.width=1024;
+        canvas.height=600;
+        var context=canvas.getContext("2d");
+
+        context.lineWidth=5;
+        context.strokeStyle="#005588";
+        for(var i=0;i<10;i++){
+            context.beginPath();
+            context.arc(50+100*i,200,20,0,2*Math.PI*(i+1)/10,false);
+            context.closePath();
+            context.stroke();
+        }
+
+        context.fillStyle="#005588";
+        for(var i=0;i<10;i++){
+            context.beginPath();
+            context.arc(50+100*i,200,20,0,2*Math.PI*(i+1)/10,false);
+            context.closePath();
+            context.fill();
+        }
+
+    </script>
+</body>
+</html>
