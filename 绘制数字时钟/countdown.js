@@ -1,19 +1,27 @@
 /**
  * Created by yyq on 2018/2/27.
  */
-var WINDOW_WIDTH=1024;
-var WINDOW_HEIGHT=600;
-var R=8;
+var WINDOW_WIDTH;
+var WINDOW_HEIGHT;
+var R;
 var MARGIN_TOP=60;
 var MARGIN_LEFT=30;
 
-const endTime=new Date(2018,1,28,20,30,20);
+const endTime=new Date();
+endTime.setTime(endTime.getTime()+3600*1000);
 var curShowTimeSeconds=0;
 
 var balls=[];
 const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
 
 window.onload=function(){
+
+    WINDOW_WIDTH=document.documentElement.clientWidth;
+    WINDOW_HEIGHT=document.documentElement.clientHeight;
+    MARGIN_LEFT=Math.round(WINDOW_WIDTH/10);
+    R=Math.round(WINDOW_WIDTH*4/5/108)-1;
+    MARGIN_TOP=Math.round(WINDOW_HEIGHT/5);
+
     var canvas=document.getElementById("canvas");
     var context=canvas.getContext('2d');
     canvas.width=WINDOW_WIDTH;
@@ -69,6 +77,7 @@ function update(){
         curShowTimeSeconds=nextShowTimeSeconds;
     }
     updateBalls();
+
 }
 function updateBalls(){
     for(var i=0;i<balls.length;i++){
@@ -101,7 +110,7 @@ function addBalls(x,y,num) {
                     y: y + i *2*(R + 1) + (R + 1),
                     g: 1.5 + Math.random(),
                     vx: Math.pow(-1, Math.ceil(Math.random() * 1000)) * 4,
-                    vy: -10,
+                    vy: -5,
                     color: colors[Math.floor(Math.random() * colors.length)]
                 }
                 balls.push(aBall);
