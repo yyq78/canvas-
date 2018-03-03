@@ -21,7 +21,7 @@ window.onload=function() {
 };
 function drawStar(cxt,x,y,outerR,innerR,rot) {
     cxt.beginPath();
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 5; i++) {
         cxt.lineTo(Math.cos((18 + i * 72-rot) / 180 * Math.PI) * outerR + x,
             -Math.sin((18 + i * 72-rot) / 180 * Math.PI) * outerR + y);
         cxt.lineTo(Math.cos((54 + i * 72-rot) / 180 * Math.PI) * innerR + x,
