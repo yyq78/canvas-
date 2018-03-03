@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="canvas" style="display:block;margin:0 auto;border:1px solid silver">
+        您的浏览器不支持canvas,请更换浏览器尝试
+    </canvas>
+    <script>
+        var canvas=document.getElementById("canvas")
+        canvas.width=600;
+        canvas.height=600;
+
+        var context=canvas.getContext("2d");
+        //使用context绘制
+
+        context.lineWidth=50;
+        context.strokeStyle="#005588";
+
+        context.beginPath();
+        context.moveTo(100,100);
+        context.lineTo(500,100);
+        context.lineCap="butt";
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(100,300);
+        context.lineTo(500,300);
+        context.lineCap="round";
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(100,500);
+        context.lineTo(500,500);
+        context.lineCap="square";
+        context.stroke();
+
+        //baseline
+        context.lineWidth=1;
+        context.strokeStyle="#27a";
+        context.beginPath();
+        context.moveTo(100,50);
+        context.lineTo(100,550);
+        context.closePath();
+        context.stroke();
+        context.beginPath();
+        context.moveTo(500,50);
+        context.lineTo(500,550);
+        context.closePath();
+        context.stroke();
+    </script>
+</body>
+</html>
